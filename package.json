@@ -1,12 +1,27 @@
 {
-  "name": "electron-app",
-  "private": true,
-  "version": "0.1.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "MartynasZilinskas"
+    "name": "electron-app",
+    "private": true,
+    "version": "0.1.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "pretest:electron": "tsc -p ./electron/ --noEmit",
+        "test:electron": "tslint -p ./electron/ --config ./electron/tslint.json",
+        "build:electron": "rollup -c ./electron/rollup.config.js"
+    },
+    "keywords": [],
+    "author": "MartynasZilinskas",
+    "dependencies": {
+        "electron": "^2.0.3"
+    },
+    "devDependencies": {
+        " ": "^0.62.0",
+        "rollup-plugin-auto-external": "^1.2.0",
+        "rollup-plugin-typescript2": "^0.15.1",
+        "simplr-tslint": "^1.0.0-alpha.14",
+        "tslint": "^5.10.0",
+        "tslint-language-service": "^0.9.9",
+        "typescript": "^2.9.2"
+    }
 }
