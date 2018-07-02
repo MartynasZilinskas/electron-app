@@ -8,11 +8,9 @@
         "publish": ["github"]
     },
     "mac": {
-        "icon": "dist",
         "target": ["dmg"]
     },
     "linux": {
-        "icon": "dist",
         "target": ["AppImage"]
     }
 }
