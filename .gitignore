@@ -266,4 +266,3 @@ main.js
 app-builds/
 dist/renderer/*
 !dist/renderer/.gitkeep
-dev-app-update.yml
