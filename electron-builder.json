@@ -3,6 +3,7 @@
     "directories": {
         "output": "app-builds"
     },
+    "artifactName": "${name}-${version}-${arch}.${ext}",
     "win": {
         "target": "nsis",
         "publish": ["github"]
