@@ -24,6 +24,12 @@ app.on("ready", async () => {
         );
         window.webContents.openDevTools();
     }
-    const result = await autoUpdater.checkForUpdates();
-    console.log(await result.downloadPromise!);
+    autoUpdater.checkForUpdates();
+    autoUpdater.on("update-available", () => {
+        autoUpdater.downloadUpdate();
+    });
+    autoUpdater.on("update-downloaded", async () => {
+        console.log("Update downloaded. Quit and install.");
+        autoUpdater.quitAndInstall();
+    });
 });
