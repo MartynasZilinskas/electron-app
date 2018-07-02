@@ -3,13 +3,13 @@
     "directories": {
         "output": "app-builds"
     },
-    "artifactName": "${name}-${version}-${arch}.${ext}",
+    "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
     "win": {
         "target": "nsis",
         "publish": ["github"]
     },
     "mac": {
-        "target": ["dmg"]
+        "target": ["dmg", "zip"]
     },
     "linux": {
         "target": ["AppImage"]
