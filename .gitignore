@@ -252,8 +252,6 @@ paket-files/
 *.sln.iml
 yarn.lock
 
-dist
-
 # MacOS
 .DS_Store
 
@@ -265,3 +263,6 @@ dist
 coverage
 .rpt2_cache
 main.js
+app-builds/
+dist/renderer/*
+!dist/renderer/.gitkeep
