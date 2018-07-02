@@ -260,8 +260,6 @@ dist
 # Ignore Rush temporary files
 /common/temp/** 
 
-**/webpack.config.js
-
 **/*.js.map
 
 coverage
