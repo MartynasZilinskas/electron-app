@@ -4,12 +4,7 @@
         "output": "app-builds"
     },
     "win": {
-        "target": ["portable"]
-    },
-    "mac": {
-        "target": ["dmg"]
-    },
-    "linux": {
-        "target": ["AppImage"]
+        "target": ["portable"],
+        "publish": ["github"]
     }
 }

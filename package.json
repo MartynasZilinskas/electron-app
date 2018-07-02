@@ -9,6 +9,7 @@
         "build": "npm run build:electron && npm run build:renderer",
         "watch": "npm-run-all -p watch:electron watch:renderer",
         "start": "electron . --serve",
+        "release": "electron-builder --publish onTagOrDraft always",
         "pack:windows": "electron-builder build --windows nsis --ia32 --x64",
         "test:electron": "tsc -p ./electron/ --noEmit && tslint -p ./electron/ --config ./electron/tslint.json",
         "test:renderer": "tsc -p ./renderer/ --noEmit && tslint -p ./renderer/ --config ./renderer/tslint.json",
@@ -20,6 +21,10 @@
     "keywords": [],
     "author": "MartynasZilinskas",
     "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MartynasZilinskas/electron-app.git"
+    },
     "devDependencies": {
         "@simplrjs/webpack": "0.1.0-alpha.2",
         "electron": "^2.0.3",
