@@ -4,7 +4,15 @@
         "output": "app-builds"
     },
     "win": {
-        "target": ["portable"],
+        "target": "nsis",
         "publish": ["github"]
+    },
+    "mac": {
+        "icon": "dist",
+        "target": ["dmg"]
+    },
+    "linux": {
+        "icon": "dist",
+        "target": ["AppImage"]
     }
 }
