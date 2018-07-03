@@ -2,6 +2,7 @@ import { app, BrowserWindow, dialog } from "electron";
 import { autoUpdater, UpdateInfo } from "electron-updater";
 import * as url from "url";
 import * as path from "path";
+import * as fs from "fs-extra";
 
 const IS_SERVE: boolean = process.argv.indexOf("--serve") !== -1;
 const DEV_PORT: number = 4000;
@@ -46,16 +47,32 @@ app.on("ready", async () => {
         }
     });
     autoUpdater.on("update-downloaded", async (info: UpdateInfo) => {
-        // @ts-ignore
-        console.log(autoUpdater.downloadedUpdateHelper.cacheDir);
+        try {
+            autoUpdater.quitAndInstall();
+        } catch {
+            // @ts-ignore // TODO: Fix this hack.
+            const cacheDir: string = autoUpdater.downloadedUpdateHelper.cacheDir;
+            const srcLocation = path.resolve(cacheDir, info.path);
 
-        const targetLocation = dialog.showSaveDialog(browserWindow, {
-            title: "Save update",
-            message: "Message.... blah blah blah",
-            defaultPath: info.path
-        });
-        console.log(targetLocation);
+            const targetLocation = dialog.showSaveDialog(browserWindow, {
+                title: "Save update",
+                message: "Message.... blah blah blah",
+                defaultPath: info.path
+            });
 
-        // autoUpdater.quitAndInstall();
+            try {
+                await fs.copy(srcLocation, targetLocation);
+            } catch (error) {
+                const message: string[] = [
+                    "An error has occured while saving setup file.",
+                    `Directory: "${cacheDir}"`,
+                    `File: "${info.path}"`,
+                    "",
+                    `${error}`
+                ];
+
+                dialog.showErrorBox("Failed to save latest setup file", message.join("\n"));
+            }
+        }
     });
 });
