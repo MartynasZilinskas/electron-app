@@ -25,7 +25,9 @@
     "keywords": [],
     "author": "MartynasZilinskas",
     "dependencies": {
-        "electron-updater": "^2.23.3"
+        "@types/fs-extra": "^5.0.3",
+        "electron-updater": "^2.23.3",
+        "fs-extra": "^6.0.1"
     },
     "repository": {
         "type": "git",
