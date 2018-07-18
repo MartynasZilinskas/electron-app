@@ -15,12 +15,12 @@
         "build:renderer": "cd renderer && webpack --config webpack.config.js",
         "watch:electron": "rollup -w -c ./electron/rollup.config.js",
         "watch:renderer": "cd renderer && webpack-dev-server",
-        "pack:windows": "electron-builder build --windows nsis --ia32 --x64",
-        "pack:linux": "electron-builder electron-builder build --linux",
-        "pack:mac": "electron-builder build --mac",
-        "release:windows": "npm run pack:windows -- --publish onTagOrDraft always",
-        "release:linux": "npm run pack:linux -- --publish onTagOrDraft always",
-        "release:mac": "npm run pack:mac -- --publish onTagOrDraft always"
+        "pack:windows": "electron-builder build --windows nsis --ia32 --x64 --publish=never",
+        "pack:linux": "electron-builder electron-builder build --linux --publish=never",
+        "pack:mac": "electron-builder build --mac --publish=never",
+        "release:windows": "electron-builder build --windows nsis --ia32 --x64 --publish onTagOrDraft always",
+        "release:linux": "electron-builder electron-builder build --linux --publish onTagOrDraft always",
+        "release:mac": "electron-builder build --mac --publish onTagOrDraft always"
     },
     "keywords": [],
     "author": "MartynasZilinskas",
