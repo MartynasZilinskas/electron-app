@@ -1,9 +1,10 @@
+// Building renderer.
 const { generateWebpackConfig } = require("@simplrjs/webpack");
 
 const config = generateWebpackConfig({
     devServerPort: 4000,
-    entryFile: "./src/app.ts",
-    outputDirectory: "../dist/renderer",
+    entryFile: "./src/renderer/app.ts",
+    outputDirectory: "./dist/renderer",
     projectDirectory: __dirname
 });
 

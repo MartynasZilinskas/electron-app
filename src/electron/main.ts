@@ -16,6 +16,7 @@ app.on("ready", async () => {
     const browserWindow = new BrowserWindow();
 
     if (IS_SERVE) {
+        // tslint:disable-next-line:no-require-imports
         require("electron-reload")(__dirname, {
             electron: require(`${__dirname}/node_modules/electron`)
         });
